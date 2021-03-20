@@ -80,3 +80,32 @@ SELECT employees.Company
 FROM employees
 WHERE Role="Graphic Designer";
 
+# Part 3: Count & Filter
+
+# Find the person with the highest number of points in students
+select * , max(Points)
+from students;
+
+# Find the average of points in students
+select avg(Points)
+from students;
+
+# Find the number of students that have 500 points
+SELECT count(*)
+FROM students
+WHERE points=500;
+
+# Find the names of students that contains 's'
+SELECT name
+FROM students
+WHERE name like "%s%";
+
+# Find all students based on the decreasing order of their points
+SELECT *
+FROM students
+ORDER by Points DESC;
+
+# if increasing
+SELECT *
+FROM students
+ORDER by Points;
