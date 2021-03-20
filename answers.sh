@@ -1,3 +1,5 @@
+# Part 1: Basic Queries
+
 # 1. Get all the names of students in the database 
 SELECT name 
 FROM students;
@@ -31,7 +33,7 @@ UPDATE students
 SET Points=Points-20
 WHERE name="Alex";
 
-# Part 2
+# Part 2: Creating Table
 
 # Create table graduates
 CREATE TABLE graduates(
@@ -54,4 +56,27 @@ WHERE name="Layal";
 # Remove Layal's record from students
 DELETE FROM students 
 WHERE name="Layal";
+
+# Part 3: Join
+
+# Produce a table that contains, for each employee, his/her name, company name, and company date.
+SELECT employees.Name, companies.Name, companies.Date
+From companies
+INNER JOIN employees ON companies.name=employees.Company;
+
+# Find the name of employees that work in companies made before 2000.
+SELECT employees.Name
+From companies
+INNER JOIN employees ON companies.name=employees.Company AND companies.Date<2000;
+
+# Find the name of company that has a graphic designer.
+#Solution 1:
+SELECT companies.Name
+From employees
+INNER JOIN companies on employees.Company=companies.Name AND employees.Role="Graphic Designer";
+
+#Solution 2:
+SELECT employees.Company
+FROM employees
+WHERE Role="Graphic Designer";
 
